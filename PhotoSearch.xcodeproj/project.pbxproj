@@ -28,6 +28,9 @@
 		D34E3CA2214E498E0050EC58 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34E3C95214E49370050EC58 /* Networking.framework */; };
 		D34E3CA4214E4B220050EC58 /* PhotoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */; };
 		D34E3CA6214E4BA80050EC58 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA5214E4BA80050EC58 /* Photo.swift */; };
+		D34E3CA8214E53280050EC58 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA7214E53280050EC58 /* Network.swift */; };
+		D34E3CAA214E536C0050EC58 /* AlamofireNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA9214E536C0050EC58 /* AlamofireNetwork.swift */; };
+		D34E3CAC214E53E20050EC58 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CAB214E53E20050EC58 /* NetworkFactory.swift */; };
 		EADAB24C302A4A158057D202 /* Pods_Model_Networking_Service_PhotoSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5422BB8C56260E15F7A8E70 /* Pods_Model_Networking_Service_PhotoSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		D34E3C98214E49370050EC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearch.swift; sourceTree = "<group>"; };
 		D34E3CA5214E4BA80050EC58 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D34E3CA7214E53280050EC58 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		D34E3CA9214E536C0050EC58 /* AlamofireNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetwork.swift; sourceTree = "<group>"; };
+		D34E3CAB214E53E20050EC58 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
 		ED471339EF081E9E4AA2EA41 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		EF57CF9FAAED1A67A99B3E61 /* Pods-Model-Networking-Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking-Service.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking-Service/Pods-Model-Networking-Service.debug.xcconfig"; sourceTree = "<group>"; };
 		F8481E1E0A7BC2AADE6D6088 /* Pods-Model-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking/Pods-Model-Networking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -220,8 +226,11 @@
 		D34E3C96214E49370050EC58 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				D34E3CA7214E53280050EC58 /* Network.swift */,
+				D34E3CA9214E536C0050EC58 /* AlamofireNetwork.swift */,
 				D34E3C97214E49370050EC58 /* Networking.h */,
 				D34E3C98214E49370050EC58 /* Info.plist */,
+				D34E3CAB214E53E20050EC58 /* NetworkFactory.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -369,6 +378,7 @@
 					};
 					D34E3C94214E49370050EC58 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -550,6 +560,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34E3CAC214E53E20050EC58 /* NetworkFactory.swift in Sources */,
+				D34E3CA8214E53280050EC58 /* Network.swift in Sources */,
+				D34E3CAA214E536C0050EC58 /* AlamofireNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +883,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F8481E1E0A7BC2AADE6D6088 /* Pods-Model-Networking.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -888,6 +902,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pixelkingapps.Networking;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -899,6 +914,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A01290976AF9061178C04FE7 /* Pods-Model-Networking.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
