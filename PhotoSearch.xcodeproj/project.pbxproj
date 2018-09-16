@@ -26,6 +26,8 @@
 		D34E3C9D214E49370050EC58 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D34E3C95214E49370050EC58 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D34E3CA1214E498A0050EC58 /* Model.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34E3C61214E48220050EC58 /* Model.framework */; };
 		D34E3CA2214E498E0050EC58 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34E3C95214E49370050EC58 /* Networking.framework */; };
+		D34E3CA4214E4B220050EC58 /* PhotoSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */; };
+		D34E3CA6214E4BA80050EC58 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA5214E4BA80050EC58 /* Photo.swift */; };
 		EADAB24C302A4A158057D202 /* Pods_Model_Networking_Service_PhotoSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5422BB8C56260E15F7A8E70 /* Pods_Model_Networking_Service_PhotoSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,11 +94,11 @@
 		D34E3C73214E48330050EC58 /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34E3C75214E48330050EC58 /* Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
 		D34E3C76214E48330050EC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D34E3C86214E48440050EC58 /* Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
-		D34E3C87214E48440050EC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D34E3C95214E49370050EC58 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34E3C97214E49370050EC58 /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		D34E3C98214E49370050EC58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSearch.swift; sourceTree = "<group>"; };
+		D34E3CA5214E4BA80050EC58 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		ED471339EF081E9E4AA2EA41 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		EF57CF9FAAED1A67A99B3E61 /* Pods-Model-Networking-Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking-Service.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking-Service/Pods-Model-Networking-Service.debug.xcconfig"; sourceTree = "<group>"; };
 		F8481E1E0A7BC2AADE6D6088 /* Pods-Model-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking/Pods-Model-Networking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +166,6 @@
 				D34E3C49214E45790050EC58 /* PhotoSearch */,
 				D34E3C62214E48220050EC58 /* Model */,
 				D34E3C74214E48330050EC58 /* Service */,
-				D34E3C85214E48440050EC58 /* Network */,
 				D34E3C96214E49370050EC58 /* Networking */,
 				D34E3C48214E45790050EC58 /* Products */,
 				4C6AA849BA7CA22F53DDD0C2 /* Pods */,
@@ -201,6 +202,8 @@
 			children = (
 				D34E3C63214E48220050EC58 /* Model.h */,
 				D34E3C64214E48220050EC58 /* Info.plist */,
+				D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */,
+				D34E3CA5214E4BA80050EC58 /* Photo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,15 +215,6 @@
 				D34E3C76214E48330050EC58 /* Info.plist */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		D34E3C85214E48440050EC58 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				D34E3C86214E48440050EC58 /* Network.h */,
-				D34E3C87214E48440050EC58 /* Info.plist */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		D34E3C96214E49370050EC58 /* Networking */ = {
@@ -368,6 +362,7 @@
 					};
 					D34E3C60214E48220050EC58 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					D34E3C72214E48330050EC58 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -539,6 +534,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34E3CA6214E4BA80050EC58 /* Photo.swift in Sources */,
+				D34E3CA4214E4B220050EC58 /* PhotoSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +711,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 15756E5342AB145F9E901D07 /* Pods-Model-Networking-Service-PhotoSearch.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PVZPBV2G42;
@@ -733,6 +731,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A14B560FF20DC6B1C8A78B98 /* Pods-Model-Networking-Service-PhotoSearch.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PVZPBV2G42;
@@ -752,6 +751,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED471339EF081E9E4AA2EA41 /* Pods-Model.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -770,6 +770,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pixelkingapps.Model;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -781,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8004C92B173DC184DB1DF823 /* Pods-Model.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
