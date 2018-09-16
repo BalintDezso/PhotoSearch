@@ -11,32 +11,58 @@ import Service
 import Model
 
 class PhotoSearchViewController: UIViewController {
+    
+    private struct Pagination {
+        
+        let currentPage: Int
+        let totalPages: Int
+        let keyword: String
+    }
 
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var collectionView: UICollectionView!
-    var photos = [Photo]()
+    @IBOutlet weak var searchIcon: UIImageView!
+    @IBOutlet private  weak var resultLabel: UILabel!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private let itemsPerPage = 20
+    private var photos = [Photo]()
+    private var isSearching = false {
+        didSet {
+            searchBar.isUserInteractionEnabled = !isSearching
+        }
+    }
+    
+    private var pagination: Pagination?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchBar.placeholder = "Enter a search term"
+    }
+    
+    private func search(withKeyword keyword: String,
+                        startingPage: Int,
+                        completion: @escaping (PhotoSearch?) -> Void) {
         
-        Service.photo.search(withKeyword: "cat", startingPage: 1, itemsPerPage: 10) { (photoSearch, error) in
+        isSearching = true
+        
+        Service.photo.search(withKeyword: keyword,
+                             startingPage: startingPage,
+                             itemsPerPage: itemsPerPage) { (photoSearch, error) in
+                           
+            self.isSearching = false
+                                
             if let error = error {
                 print("Did fail photo search with error: \(error)")
-                return
             }
             
-            guard let photoSearch = photoSearch else {
-                return
+            if let photoSearch = photoSearch {
+                print("Did finish fetching photos \(photoSearch)")
             }
-            
-            self.photos.append(contentsOf: photoSearch.photos)
-            self.collectionView.reloadData()
-            self.resultLabel.text = "Found \(photoSearch.total) photos."
-            
-            print("Did fetch photos \(photoSearch)")
+                                
+            DispatchQueue.main.async {
+                completion(photoSearch)
+            }
         }
     }
 }
@@ -67,6 +93,46 @@ extension PhotoSearchViewController: UICollectionViewDataSource {
     }
 }
 
+extension PhotoSearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        willDisplay cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        guard let pagination = pagination,
+            pagination.currentPage < pagination.totalPages,
+            !isSearching,
+            indexPath.row == photos.count - (itemsPerPage / 2) else {
+                return
+        }
+        
+        search(withKeyword: pagination.keyword,
+               startingPage: pagination.currentPage + 1) { (photosSearch) in
+                
+                guard let photosSearch = photosSearch else {
+                    
+                    return
+                }
+                
+                let startIndex = self.photos.count
+                let endIndex = self.photos.count + photosSearch.photos.count
+                
+                self.photos.append(contentsOf: photosSearch.photos)
+                
+                var indexes = [IndexPath]()
+                for i in startIndex..<endIndex {
+                    indexes.append(IndexPath(row: i, section: 0))
+                }
+                
+                self.collectionView.insertItems(at: indexes)
+                
+                self.pagination = Pagination(currentPage: pagination.currentPage + 1,
+                                             totalPages: pagination.totalPages,
+                                             keyword: pagination.keyword)
+        }
+    }
+}
+
 extension PhotoSearchViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -88,11 +154,49 @@ extension PhotoSearchViewController: UICollectionViewDelegateFlowLayout {
 
 extension PhotoSearchViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        searchBar.becomeFirstResponder()
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.becomeFirstResponder()
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let searchText = searchBar.text,
+            !searchText.isEmpty else {
+                
+                let alertController = UIAlertController(title: "",
+                                                        message: "Please enter a keyword before searching.",
+                                                        preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+                return
+        }
+        
+        photos.removeAll()
+        collectionView.reloadData()
+        pagination = nil
+        searchIcon.isHidden = false
+        
+        search(withKeyword: searchText, startingPage: 1) { (photosSearch) in
+            
+            guard let photosSearch = photosSearch else {
+                
+                self.resultLabel.text = "An error occured. Try again."
+                return
+            }
+            
+            self.searchIcon.isHidden = true
+            self.photos = photosSearch.photos
+            self.collectionView.reloadData()
+            self.resultLabel.text = "Found \(photosSearch.total) photos."
+            self.pagination = Pagination(currentPage: 1,
+                                    totalPages: photosSearch.pages,
+                                    keyword: searchText)
+        }
+        
+        searchBar.resignFirstResponder()
     }
 }

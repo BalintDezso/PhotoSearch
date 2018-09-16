@@ -38,7 +38,7 @@
                                     <size key="itemSize" width="254" height="216"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="0wv-k8-2iE" customClass="PhotoCell" customModule="PhotoSearch" customModuleProvider="target">
@@ -98,13 +98,19 @@
                                 <connections>
                                     <outlet property="dataSource" destination="WWE-Md-AQW" id="0Y2-TP-I2W"/>
                                     <outlet property="delegate" destination="WWE-Md-AQW" id="Vr0-3O-MTe"/>
+                                    <outlet property="prefetchDataSource" destination="WWE-Md-AQW" id="v85-Mj-kFx"/>
                                 </connections>
                             </collectionView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="Kvt-na-MSq">
+                                <rect key="frame" x="20" y="258" width="335" height="170"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HHL-CX-ikw" firstAttribute="top" secondItem="Fbl-2X-X6l" secondAttribute="bottom" constant="10" id="00Y-NG-Dxf"/>
                             <constraint firstAttribute="trailing" secondItem="ExJ-xl-ucr" secondAttribute="trailing" id="6g6-PW-f8Q"/>
+                            <constraint firstItem="mSK-48-L1v" firstAttribute="trailing" secondItem="Kvt-na-MSq" secondAttribute="trailing" constant="20" id="HQ6-Qr-kbf"/>
+                            <constraint firstItem="Kvt-na-MSq" firstAttribute="centerY" secondItem="mSK-48-L1v" secondAttribute="centerY" id="SNY-Kf-t07"/>
                             <constraint firstItem="Fbl-2X-X6l" firstAttribute="leading" secondItem="mSK-48-L1v" secondAttribute="leading" constant="10" id="XVR-8P-QYm"/>
                             <constraint firstItem="ExJ-xl-ucr" firstAttribute="top" secondItem="mSK-48-L1v" secondAttribute="top" id="bhc-St-irc"/>
                             <constraint firstItem="Fbl-2X-X6l" firstAttribute="trailing" secondItem="mSK-48-L1v" secondAttribute="trailing" constant="10" id="eah-nW-25F"/>
@@ -113,6 +119,7 @@
                             <constraint firstItem="HHL-CX-ikw" firstAttribute="leading" secondItem="mSK-48-L1v" secondAttribute="leading" id="oCc-0t-sbP"/>
                             <constraint firstItem="Fbl-2X-X6l" firstAttribute="top" secondItem="ExJ-xl-ucr" secondAttribute="bottom" constant="10" id="oyt-Az-Pei"/>
                             <constraint firstItem="mSK-48-L1v" firstAttribute="bottom" secondItem="HHL-CX-ikw" secondAttribute="bottom" id="qhZ-Ry-0gC"/>
+                            <constraint firstItem="Kvt-na-MSq" firstAttribute="leading" secondItem="mSK-48-L1v" secondAttribute="leading" constant="20" id="zDb-Rs-ZLh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mSK-48-L1v"/>
                     </view>
@@ -120,6 +127,7 @@
                         <outlet property="collectionView" destination="HHL-CX-ikw" id="kK6-KP-1kn"/>
                         <outlet property="resultLabel" destination="Fbl-2X-X6l" id="EdR-fa-Emd"/>
                         <outlet property="searchBar" destination="ExJ-xl-ucr" id="BbD-OV-0Do"/>
+                        <outlet property="searchIcon" destination="Kvt-na-MSq" id="U6m-H9-J7b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJI-yS-NdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -127,4 +135,7 @@
             <point key="canvasLocation" x="-1034.4000000000001" y="6.746626686656672"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search" width="170" height="170"/>
+    </resources>
 </document>
