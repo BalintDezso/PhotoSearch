@@ -60,4 +60,17 @@ class FlickrPhotoService: PhotoService {
             completion(nil, error)
         }
     }
+    
+    func url(for photo: Photo,
+             size: PhotoSize) -> URL? {
+        
+        do {
+            let url = try urlBuilder.url(for: photo, size: size)
+            
+            return url
+        } catch {
+            print("Failed building URL for photo: \(photo) and size: \(size.rawValue) with error: \(error)")
+            return nil
+        }
+    }
 }

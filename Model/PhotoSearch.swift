@@ -10,12 +10,12 @@ import Foundation
 
 public struct PhotoSearch: Decodable {
     
-    let page: Int
-    let pages: Int
-    let perPage: Int
-    let total: Int
-    let photos: [Photo]
-    let status : String
+    public let page: Int
+    public let pages: Int
+    public let perPage: Int
+    public let total: Int
+    public let photos: [Photo]
+    public let status : String
     
     private enum TopLevelCodingKeys: String, CodingKey {
         

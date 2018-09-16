@@ -15,4 +15,7 @@ public protocol PhotoService  {
                 startingPage: Int,
                 itemsPerPage: Int,
                 completion: @escaping (PhotoSearch?, Error?) -> Void)
+    
+    func url(for photo: Photo,
+             size: PhotoSize) -> URL?
 }

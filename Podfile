@@ -22,6 +22,7 @@ target 'Model' do
           target 'PhotoSearch' do
             
             # PhotoSearchUI Pods
+	    pod 'SDWebImage', '~> 4.0'
             #
             
           end

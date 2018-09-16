@@ -10,15 +10,15 @@ import Foundation
 
 public struct Photo: Decodable {
     
-    let id: String
-    let owner: String
-    let secret: String
-    let server: String
-    let farm: Int
-    let title: String
-    let isPublic: Bool
-    let isFriend: Bool
-    let isFamily: Bool
+    public let id: String
+    public let owner: String
+    public let secret: String
+    public let server: String
+    public let farm: Int
+    public let title: String
+    public let isPublic: Bool
+    public let isFriend: Bool
+    public let isFamily: Bool
     
     private enum CodingKeys: String, CodingKey {
         

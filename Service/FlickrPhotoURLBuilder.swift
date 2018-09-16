@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Model
 
 class FlickrPhotoURLBuilder {
     
@@ -39,6 +40,30 @@ class FlickrPhotoURLBuilder {
         }
         
         return finalURL
+    }
+    
+    func url(for photo: Photo, size: PhotoSize) throws -> URL {
+        
+        let sizeParameter: String
+        
+        switch size {
+        case .small:
+            sizeParameter = "s"
+        case .medium:
+            sizeParameter = "n"
+        case .large:
+            sizeParameter = "b"
+        case .original:
+            sizeParameter = "o"
+        }
+        
+        let urlString = "https://farm\(photo.farm).staticflickr.com/\(photo.server)/\(photo.id)_\(photo.secret)_\(sizeParameter).jpg"
+        
+        guard let photoURL = URL(string: urlString) else {
+            throw ServiceError.invalidURL(details: urlString)
+        }
+        
+        return photoURL
     }
     
 }
