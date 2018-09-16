@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Network {
+public protocol Network {
     
     func send(request: URLRequest,
               completion: @escaping (_ data: Data?, _ error: Error?) -> Void)

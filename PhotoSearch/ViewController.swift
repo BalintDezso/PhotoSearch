@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import Service
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        Service.photo.search(withKeyword: "cat", startingPage: 1, itemsPerPage: 10) { (photoSearch, error) in
+            if let error = error {
+                print("Did fail photo search with error: \(error)")
+                return
+            }
+            
+            print("Did fetch photos \(photoSearch)")
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

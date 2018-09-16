@@ -10,7 +10,7 @@ import Foundation
 
 public class NetworkFactory {
     
-    static func makeNetwork() -> Network {
+    static public func makeNetwork() -> Network {
         
         return AlamofireNetwork()
     }

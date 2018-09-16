@@ -43,8 +43,13 @@ public struct Photo: Decodable {
         server = try container.decode(String.self, forKey: .server)
         farm = try container.decode(Int.self, forKey: .farm)
         title = try container.decode(String.self, forKey: .title)
-        isPublic = try container.decode(Bool.self, forKey: .isPublic)
-        isFriend = try container.decode(Bool.self, forKey: .isFriend)
-        isFamily = try container.decode(Bool.self, forKey: .isFamily)
+        
+        let isPublicInt = try container.decode(Int.self, forKey: .isPublic)
+        let isFriendInt = try container.decode(Int.self, forKey: .isFriend)
+        let isFamilyInt = try container.decode(Int.self, forKey: .isFamily)
+
+        isPublic = Bool(truncating: isPublicInt as NSNumber)
+        isFriend = Bool(truncating: isFriendInt as NSNumber)
+        isFamily = Bool(truncating: isFamilyInt as NSNumber)
     }
 }

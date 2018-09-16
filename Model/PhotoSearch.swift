@@ -19,7 +19,7 @@ public struct PhotoSearch: Decodable {
     
     private enum TopLevelCodingKeys: String, CodingKey {
         
-        case status
+        case status = "stat"
         case photos
     }
     
@@ -29,7 +29,7 @@ public struct PhotoSearch: Decodable {
         case pages
         case perPage = "perpage"
         case total
-        case photoss = "photo"
+        case photos = "photo"
     }
     
     public init(from decoder: Decoder) throws {
@@ -44,7 +44,13 @@ public struct PhotoSearch: Decodable {
         page = try photosContainer.decode(Int.self, forKey: .page)
         pages = try photosContainer.decode(Int.self, forKey: .pages)
         perPage = try photosContainer.decode(Int.self, forKey: .perPage)
-        total = try photosContainer.decode(Int.self, forKey: .total)
-        photos = try photosContainer.decode([Photo].self, forKey: .photoss)
+        photos = try photosContainer.decode([Photo].self, forKey: .photos)
+        
+        let totalString = try photosContainer.decode(String.self, forKey: .total)
+        guard let totalInt = Int(totalString) else {
+            throw ModelError.conversionFailure(details: "Failed converting \(totalString) to integer.")
+        }
+        
+        total = totalInt
     }
 }

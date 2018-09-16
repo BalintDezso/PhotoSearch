@@ -31,6 +31,12 @@
 		D34E3CA8214E53280050EC58 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA7214E53280050EC58 /* Network.swift */; };
 		D34E3CAA214E536C0050EC58 /* AlamofireNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CA9214E536C0050EC58 /* AlamofireNetwork.swift */; };
 		D34E3CAC214E53E20050EC58 /* NetworkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CAB214E53E20050EC58 /* NetworkFactory.swift */; };
+		D34E3CAE214E56910050EC58 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CAD214E56910050EC58 /* Service.swift */; };
+		D34E3CB0214E56C00050EC58 /* PhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CAF214E56C00050EC58 /* PhotoService.swift */; };
+		D34E3CB2214E56D50050EC58 /* FlickrPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB1214E56D50050EC58 /* FlickrPhotoService.swift */; };
+		D34E3CB4214E58F50050EC58 /* FlickrPhotoURLBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB3214E58F50050EC58 /* FlickrPhotoURLBuilder.swift */; };
+		D34E3CB6214E5CB20050EC58 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB5214E5CB20050EC58 /* ServiceError.swift */; };
+		D34E3CB8214E631A0050EC58 /* ModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB7214E631A0050EC58 /* ModelError.swift */; };
 		EADAB24C302A4A158057D202 /* Pods_Model_Networking_Service_PhotoSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5422BB8C56260E15F7A8E70 /* Pods_Model_Networking_Service_PhotoSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +111,12 @@
 		D34E3CA7214E53280050EC58 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		D34E3CA9214E536C0050EC58 /* AlamofireNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireNetwork.swift; sourceTree = "<group>"; };
 		D34E3CAB214E53E20050EC58 /* NetworkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFactory.swift; sourceTree = "<group>"; };
+		D34E3CAD214E56910050EC58 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		D34E3CAF214E56C00050EC58 /* PhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoService.swift; sourceTree = "<group>"; };
+		D34E3CB1214E56D50050EC58 /* FlickrPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoService.swift; sourceTree = "<group>"; };
+		D34E3CB3214E58F50050EC58 /* FlickrPhotoURLBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhotoURLBuilder.swift; sourceTree = "<group>"; };
+		D34E3CB5214E5CB20050EC58 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		D34E3CB7214E631A0050EC58 /* ModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelError.swift; sourceTree = "<group>"; };
 		ED471339EF081E9E4AA2EA41 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		EF57CF9FAAED1A67A99B3E61 /* Pods-Model-Networking-Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking-Service.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking-Service/Pods-Model-Networking-Service.debug.xcconfig"; sourceTree = "<group>"; };
 		F8481E1E0A7BC2AADE6D6088 /* Pods-Model-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking/Pods-Model-Networking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +222,7 @@
 				D34E3C64214E48220050EC58 /* Info.plist */,
 				D34E3CA3214E4B220050EC58 /* PhotoSearch.swift */,
 				D34E3CA5214E4BA80050EC58 /* Photo.swift */,
+				D34E3CB7214E631A0050EC58 /* ModelError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,8 +230,13 @@
 		D34E3C74214E48330050EC58 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D34E3CAF214E56C00050EC58 /* PhotoService.swift */,
+				D34E3CB1214E56D50050EC58 /* FlickrPhotoService.swift */,
+				D34E3CB3214E58F50050EC58 /* FlickrPhotoURLBuilder.swift */,
+				D34E3CAD214E56910050EC58 /* Service.swift */,
 				D34E3C75214E48330050EC58 /* Service.h */,
 				D34E3C76214E48330050EC58 /* Info.plist */,
+				D34E3CB5214E5CB20050EC58 /* ServiceError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -375,6 +393,7 @@
 					};
 					D34E3C72214E48330050EC58 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					D34E3C94214E49370050EC58 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -546,6 +565,7 @@
 			files = (
 				D34E3CA6214E4BA80050EC58 /* Photo.swift in Sources */,
 				D34E3CA4214E4B220050EC58 /* PhotoSearch.swift in Sources */,
+				D34E3CB8214E631A0050EC58 /* ModelError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +573,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D34E3CB6214E5CB20050EC58 /* ServiceError.swift in Sources */,
+				D34E3CB4214E58F50050EC58 /* FlickrPhotoURLBuilder.swift in Sources */,
+				D34E3CB0214E56C00050EC58 /* PhotoService.swift in Sources */,
+				D34E3CB2214E56D50050EC58 /* FlickrPhotoService.swift in Sources */,
+				D34E3CAE214E56910050EC58 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +850,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF57CF9FAAED1A67A99B3E61 /* Pods-Model-Networking-Service.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -843,6 +869,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pixelkingapps.Service;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -854,6 +881,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 916E3B0BB274B5AE83BA2499 /* Pods-Model-Networking-Service.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
