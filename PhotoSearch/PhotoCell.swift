@@ -14,6 +14,10 @@ class PhotoCell: UICollectionViewCell {
     @IBOutlet private weak var photoImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     
+    var photoImage: UIImage? {
+        return photoImageView.image
+    }
+    
     func setup(withIcon icon: URL?, title: String) {
         
         photoImageView.contentMode = .scaleAspectFit

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WWE-Md-AQW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="052-ol-wfq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Photo Search View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="gPs-uR-Dai">
+            <objects>
+                <navigationController id="052-ol-wfq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PlW-of-8z3">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="WWE-Md-AQW" kind="relationship" relationship="rootViewController" id="JOU-8f-i4j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QD6-wz-QGm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1918" y="7"/>
+        </scene>
+        <!--Photo Search-->
         <scene sceneID="ztk-4b-xWo">
             <objects>
                 <viewController id="WWE-Md-AQW" customClass="PhotoSearchViewController" customModule="PhotoSearch" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,20 +35,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ExJ-xl-ucr">
-                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="WWE-Md-AQW" id="rey-Ec-711"/>
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbl-2X-X6l">
-                                <rect key="frame" x="10" y="86" width="375" height="0.0"/>
+                                <rect key="frame" x="10" y="130" width="375" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HHL-CX-ikw">
-                                <rect key="frame" x="0.0" y="96" width="375" height="571"/>
+                                <rect key="frame" x="0.0" y="140" width="375" height="527"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FHn-Gs-azz">
                                     <size key="itemSize" width="254" height="216"/>
@@ -102,7 +118,7 @@
                                 </connections>
                             </collectionView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="Kvt-na-MSq">
-                                <rect key="frame" x="20" y="258" width="335" height="170"/>
+                                <rect key="frame" x="20" y="280.5" width="335" height="170"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -123,6 +139,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mSK-48-L1v"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Photo Search" id="FJh-mh-Nku"/>
                     <connections>
                         <outlet property="collectionView" destination="HHL-CX-ikw" id="kK6-KP-1kn"/>
                         <outlet property="resultLabel" destination="Fbl-2X-X6l" id="EdR-fa-Emd"/>
@@ -151,35 +168,22 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeHolder" translatesAutoresizingMaskIntoConstraints="NO" id="VRb-m9-tSp">
-                                <rect key="frame" x="10" y="100" width="355" height="170"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="170"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vab-EO-SyL">
-                                <rect key="frame" x="10" y="40" width="355" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="uaG-VR-ZAD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xmK-wo-0eY" firstAttribute="bottom" secondItem="yHX-NI-TrW" secondAttribute="bottom" constant="20" id="CqV-C9-5Md"/>
-                            <constraint firstItem="xmK-wo-0eY" firstAttribute="trailing" secondItem="VRb-m9-tSp" secondAttribute="trailing" constant="10" id="Ik1-WI-Cog"/>
-                            <constraint firstItem="Vab-EO-SyL" firstAttribute="top" secondItem="xmK-wo-0eY" secondAttribute="top" constant="20" id="MFM-rc-1kr"/>
-                            <constraint firstItem="VRb-m9-tSp" firstAttribute="leading" secondItem="xmK-wo-0eY" secondAttribute="leading" constant="10" id="QHo-It-RUv"/>
+                            <constraint firstItem="xmK-wo-0eY" firstAttribute="trailing" secondItem="VRb-m9-tSp" secondAttribute="trailing" id="Ik1-WI-Cog"/>
+                            <constraint firstItem="VRb-m9-tSp" firstAttribute="leading" secondItem="xmK-wo-0eY" secondAttribute="leading" id="QHo-It-RUv"/>
                             <constraint firstItem="yHX-NI-TrW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="VRb-m9-tSp" secondAttribute="bottom" constant="10" id="dOo-Ic-Eb5"/>
-                            <constraint firstItem="Vab-EO-SyL" firstAttribute="leading" secondItem="xmK-wo-0eY" secondAttribute="leading" constant="10" id="hMA-jh-UBB"/>
-                            <constraint firstItem="VRb-m9-tSp" firstAttribute="top" secondItem="Vab-EO-SyL" secondAttribute="bottom" constant="10" id="qeE-QP-BrQ"/>
-                            <constraint firstItem="xmK-wo-0eY" firstAttribute="trailing" secondItem="Vab-EO-SyL" secondAttribute="trailing" constant="10" id="tmA-h9-qIa"/>
                             <constraint firstItem="yHX-NI-TrW" firstAttribute="centerX" secondItem="xmK-wo-0eY" secondAttribute="centerX" id="uP6-0s-f74"/>
+                            <constraint firstItem="VRb-m9-tSp" firstAttribute="top" secondItem="xmK-wo-0eY" secondAttribute="top" id="ya8-hm-gYK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmK-wo-0eY"/>
                     </view>
                     <connections>
                         <outlet property="photoImageView" destination="VRb-m9-tSp" id="dvX-gy-cUK"/>
-                        <outlet property="titleLabel" destination="Vab-EO-SyL" id="aMe-kX-WQV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8i-1X-Vz4" userLabel="First Responder" sceneMemberID="firstResponder"/>

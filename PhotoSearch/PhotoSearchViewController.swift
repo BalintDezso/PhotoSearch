@@ -9,6 +9,7 @@
 import UIKit
 import Service
 import Model
+import Hero
 
 class PhotoSearchViewController: UIViewController {
     
@@ -32,7 +33,6 @@ class PhotoSearchViewController: UIViewController {
         }
     }
     
-    private var selectedPhoto: Photo?
     private var pagination: Pagination?
     
     override func viewDidLoad() {
@@ -74,9 +74,17 @@ extension PhotoSearchViewController {
                           sender: Any?) {
         
         if let photoVC = segue.destination as? PhotoViewController,
-            let photo = selectedPhoto {
-            photoVC.photo = photo
-            selectedPhoto = nil
+           let selectedIndex = collectionView.indexPathsForSelectedItems?.first,
+           let cell = collectionView.cellForItem(at: selectedIndex) as? PhotoCell {
+            
+            let heroId = photos[selectedIndex.row].id
+            
+            photoVC.hero.isEnabled = true
+            photoVC.photoImage = cell.photoImage
+            photoVC.photoId = heroId
+            cell.hero.id = heroId
+            
+            collectionView.deselectItem(at: selectedIndex, animated: false)
         }
     }
 }
@@ -99,7 +107,7 @@ extension PhotoSearchViewController: UICollectionViewDataSource {
         }
         
         let photo = photos[indexPath.row]
-        let iconURL = Service.photo.url(for: photo, size: .medium)
+        let iconURL = Service.photo.url(for: photo, size: .large)
         
         cell.setup(withIcon: iconURL, title: photo.title)
         
@@ -111,9 +119,6 @@ extension PhotoSearchViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
-        
-        let photo = photos[indexPath.row]
-        selectedPhoto = photo
         
         performSegue(withIdentifier: "showPhotoSegue",
                      sender: self)

@@ -10,10 +10,12 @@ import UIKit
 import Model
 import Service
 import SDWebImage
+import Hero
 
 class PhotoViewController: UIViewController {
     
-    var photo: Photo!
+    var photoImage: UIImage!
+    var photoId: String!
     
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var photoImageView: UIImageView!
@@ -21,14 +23,8 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = photo.title
-        
-        let photoURL = Service.photo.url(for: photo, size: .large)
-        
-        photoImageView.sd_setImage(with: photoURL,
-                                   placeholderImage: #imageLiteral(resourceName: "placeHolder"),
-                                   options: .highPriority,
-                                   completed: nil)
+        photoImageView.image = photoImage
+        photoImageView.hero.id = photoId
     }
     
     @IBAction func didTapClose(_ sender: UIButton) {
