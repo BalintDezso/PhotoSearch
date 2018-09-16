@@ -32,6 +32,7 @@ class PhotoSearchViewController: UIViewController {
         }
     }
     
+    private var selectedPhoto: Photo?
     private var pagination: Pagination?
     
     override func viewDidLoad() {
@@ -67,6 +68,19 @@ class PhotoSearchViewController: UIViewController {
     }
 }
 
+extension PhotoSearchViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue,
+                          sender: Any?) {
+        
+        if let photoVC = segue.destination as? PhotoViewController,
+            let photo = selectedPhoto {
+            photoVC.photo = photo
+            selectedPhoto = nil
+        }
+    }
+}
+
 extension PhotoSearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
@@ -94,6 +108,16 @@ extension PhotoSearchViewController: UICollectionViewDataSource {
 }
 
 extension PhotoSearchViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
+        let photo = photos[indexPath.row]
+        selectedPhoto = photo
+        
+        performSegue(withIdentifier: "showPhotoSegue",
+                     sender: self)
+    }
     
     func collectionView(_ collectionView: UICollectionView,
                         willDisplay cell: UICollectionViewCell,

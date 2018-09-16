@@ -39,6 +39,7 @@
 		D34E3CB8214E631A0050EC58 /* ModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB7214E631A0050EC58 /* ModelError.swift */; };
 		D34E3CBA214E6EF00050EC58 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CB9214E6EEF0050EC58 /* PhotoCell.swift */; };
 		D34E3CBC214E733B0050EC58 /* PhotoSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34E3CBB214E733B0050EC58 /* PhotoSize.swift */; };
+		D3F3150A214E97A700C30569 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F31509214E97A700C30569 /* PhotoViewController.swift */; };
 		EADAB24C302A4A158057D202 /* Pods_Model_Networking_Service_PhotoSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5422BB8C56260E15F7A8E70 /* Pods_Model_Networking_Service_PhotoSearch.framework */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +122,7 @@
 		D34E3CB7214E631A0050EC58 /* ModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelError.swift; sourceTree = "<group>"; };
 		D34E3CB9214E6EEF0050EC58 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		D34E3CBB214E733B0050EC58 /* PhotoSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSize.swift; sourceTree = "<group>"; };
+		D3F31509214E97A700C30569 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		ED471339EF081E9E4AA2EA41 /* Pods-Model.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.debug.xcconfig"; sourceTree = "<group>"; };
 		EF57CF9FAAED1A67A99B3E61 /* Pods-Model-Networking-Service.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking-Service.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking-Service/Pods-Model-Networking-Service.debug.xcconfig"; sourceTree = "<group>"; };
 		F8481E1E0A7BC2AADE6D6088 /* Pods-Model-Networking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model-Networking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Model-Networking/Pods-Model-Networking.debug.xcconfig"; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				D34E3C4A214E45790050EC58 /* AppDelegate.swift */,
 				D34E3C4C214E45790050EC58 /* PhotoSearchViewController.swift */,
 				D34E3CB9214E6EEF0050EC58 /* PhotoCell.swift */,
+				D3F31509214E97A700C30569 /* PhotoViewController.swift */,
 				D34E3C4E214E45790050EC58 /* Main.storyboard */,
 				D34E3C51214E457B0050EC58 /* Assets.xcassets */,
 				D34E3C53214E457B0050EC58 /* LaunchScreen.storyboard */,
@@ -563,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D34E3C4D214E45790050EC58 /* PhotoSearchViewController.swift in Sources */,
+				D3F3150A214E97A700C30569 /* PhotoViewController.swift in Sources */,
 				D34E3CBA214E6EF00050EC58 /* PhotoCell.swift in Sources */,
 				D34E3C4B214E45790050EC58 /* AppDelegate.swift in Sources */,
 			);
