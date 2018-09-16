@@ -8,7 +8,8 @@ PhotoSearch is a simple application that allows the user to search for any photo
 - Open up the `PhotoSearch.xcworkspace` and run the PhotoSearch target
 
 ## Architecture
-![](projectArchitecture.svg)
+![Project Architecture](projectArchitecture.png)
+
 The application is built using MVC but all the layers are separated into their own dynamic libraries. This ensures that only the needed methods and classes are exposed to the public while keeping all the details encapsulated in the respective layer. I have also created a Network layer and a Service layer along with factories to create instances. Both the Network and the Service layer make certain protocol public while specific services implemented them within the layer. 
 
 ## Libraries used
