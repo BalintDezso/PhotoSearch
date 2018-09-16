@@ -33,4 +33,11 @@ class PhotoCell: UICollectionViewCell {
         }
         titleLabel.text = title
     }
+    
+    override func prepareForReuse() {
+        
+        super.prepareForReuse()
+        self.photoImageView.sd_cancelCurrentImageLoad()
+        self.photoImageView.image = #imageLiteral(resourceName: "placeHolder")
+    }
 }
