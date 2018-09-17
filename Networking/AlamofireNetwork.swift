@@ -19,7 +19,8 @@ class AlamofireNetwork: Network {
         session = SessionManager(configuration: configuration)
     }
     
-    func send(request: URLRequest, completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
+    func send(request: URLRequest,
+              completion: @escaping (_ data: Data?, _ error: Error?) -> Void) {
         
         session.request(request).validate().response { response in
             

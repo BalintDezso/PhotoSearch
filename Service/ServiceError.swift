@@ -12,7 +12,6 @@ public enum ServiceError: Error {
     
     case invalidURL(details: String)
     case missingDataWhereExpected(details: String)
-    
 }
 
 extension ServiceError: LocalizedError {

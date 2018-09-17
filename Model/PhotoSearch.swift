@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct PhotoSearch: Decodable {
+public struct PhotoSearch: Decodable, CustomStringConvertible {
     
     public let page: Int
     public let pages: Int
@@ -16,8 +16,13 @@ public struct PhotoSearch: Decodable {
     public let total: Int
     public let photos: [Photo]
     public let status : String
-    
-    private enum TopLevelCodingKeys: String, CodingKey {
+  
+    public var description: String {
+      
+      return "Current Page: \(page) of \(pages) with \(photos.count) photos."
+    }
+  
+    private enum SearchResultCodingKeys: String, CodingKey {
         
         case status = "stat"
         case photos
@@ -34,7 +39,7 @@ public struct PhotoSearch: Decodable {
     
     public init(from decoder: Decoder) throws {
         
-        let container = try decoder.container(keyedBy: TopLevelCodingKeys.self)
+        let container = try decoder.container(keyedBy: SearchResultCodingKeys.self)
         
         status = try container.decode(String.self, forKey: .status)
         

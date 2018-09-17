@@ -238,6 +238,7 @@
 		D34E3C74214E48330050EC58 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D34E3CBB214E733B0050EC58 /* PhotoSize.swift */,
 				D34E3CAF214E56C00050EC58 /* PhotoService.swift */,
 				D34E3CB1214E56D50050EC58 /* FlickrPhotoService.swift */,
 				D34E3CB3214E58F50050EC58 /* FlickrPhotoURLBuilder.swift */,
@@ -245,7 +246,6 @@
 				D34E3C75214E48330050EC58 /* Service.h */,
 				D34E3C76214E48330050EC58 /* Info.plist */,
 				D34E3CB5214E5CB20050EC58 /* ServiceError.swift */,
-				D34E3CBB214E733B0050EC58 /* PhotoSize.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

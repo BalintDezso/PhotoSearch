@@ -32,7 +32,8 @@ class FlickrPhotoURLBuilder {
         queryItems.append(URLQueryItem(name: "page", value: "\(startingPage)"))
         queryItems.append(URLQueryItem(name: "per_page", value: "\(itemsPerPage)"))
         
-        var urlComponents = URLComponents(url: baseServiceURL, resolvingAgainstBaseURL: false)
+        var urlComponents = URLComponents(url: baseServiceURL,
+                                          resolvingAgainstBaseURL: false)
         urlComponents?.queryItems = queryItems
         
         guard let finalURL = urlComponents?.url else {
@@ -65,5 +66,4 @@ class FlickrPhotoURLBuilder {
         
         return photoURL
     }
-    
 }

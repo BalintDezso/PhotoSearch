@@ -37,7 +37,7 @@ class PhotoCell: UICollectionViewCell {
     override func prepareForReuse() {
         
         super.prepareForReuse()
-        self.photoImageView.sd_cancelCurrentImageLoad()
-        self.photoImageView.image = #imageLiteral(resourceName: "placeHolder")
+        photoImageView.sd_cancelCurrentImageLoad()
+        photoImageView.image = #imageLiteral(resourceName: "placeHolder")
     }
 }

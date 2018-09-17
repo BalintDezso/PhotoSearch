@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Model
-import Service
-import SDWebImage
 import Hero
 
 class PhotoViewController: UIViewController {

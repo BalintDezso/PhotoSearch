@@ -22,6 +22,7 @@ The application is built using MVC but all the layers are separated into their o
 - Do a performance optimization to fetch a lower resolution image to display in the collection view and fetch a high quality one when the user taps on it without compromising the fluidity. 
 - Introduce authentication and allow the user to favorite photos they like. 
 - A share feature that allows the user to share the photo on a social media platform of their choice. 
+- Introduce a logging framework to introduce more detailed logging. 
 
 
 

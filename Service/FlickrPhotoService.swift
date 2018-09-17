@@ -66,7 +66,6 @@ class FlickrPhotoService: PhotoService {
         
         do {
             let url = try urlBuilder.url(for: photo, size: size)
-            
             return url
         } catch {
             print("Failed building URL for photo: \(photo) and size: \(size.rawValue) with error: \(error)")

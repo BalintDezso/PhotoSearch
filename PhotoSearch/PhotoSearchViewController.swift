@@ -20,8 +20,8 @@ class PhotoSearchViewController: UIViewController {
         let keyword: String
     }
 
-    @IBOutlet weak var searchIcon: UIImageView!
-    @IBOutlet private  weak var resultLabel: UILabel!
+    @IBOutlet private weak var searchIcon: UIImageView!
+    @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var collectionView: UICollectionView!
     
@@ -92,13 +92,13 @@ extension PhotoSearchViewController {
 extension PhotoSearchViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
-                                 numberOfItemsInSection section: Int) -> Int {
+                        numberOfItemsInSection section: Int) -> Int {
         
         return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView,
-                                 cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let reuseIdentifier = "imageCell"
         
@@ -222,8 +222,8 @@ extension PhotoSearchViewController: UISearchBarDelegate {
             self.collectionView.reloadData()
             self.resultLabel.text = "Found \(photosSearch.total) photos."
             self.pagination = Pagination(currentPage: 1,
-                                    totalPages: photosSearch.pages,
-                                    keyword: searchText)
+                                         totalPages: photosSearch.pages,
+                                         keyword: searchText)
         }
         
         searchBar.resignFirstResponder()
